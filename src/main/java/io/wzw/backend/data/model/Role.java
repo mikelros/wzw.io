@@ -1,7 +1,7 @@
 package io.wzw.backend.data.model;
 
 public class Role {
-	private Long id;
+	private Integer id;
 	private String name;
 	private String description;
 	
@@ -16,7 +16,7 @@ public class Role {
 	 * @param name
 	 * @param description
 	 */
-	public Role(Long id, String name, String description) {
+	public Role(Integer id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -27,7 +27,7 @@ public class Role {
 	 * @return id
 	 * 			
 	 */
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -36,7 +36,7 @@ public class Role {
 	 * @param id
 	 * 			the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
