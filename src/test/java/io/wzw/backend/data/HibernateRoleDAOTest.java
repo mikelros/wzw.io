@@ -5,6 +5,8 @@ package io.wzw.backend.data;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.After;
@@ -41,15 +43,11 @@ public class HibernateRoleDAOTest {
 	 * Test method for {@link io.wzw.backend.data.dao.impl.HibernateRoleDAO#selectById(java.lang.Long)}.
 	 */
 	@Test
-	public void testSelectById() {
-		Integer id = 2;
-		Role role = roleDAO.selectById(id);
-		assertNull("Select by Id with an empty table shoud be null",role);
-		
-		// Select after first insert
+	public void testSelectById() {		
+		// Select after insert
 		Role insertRole = new Role(null,"Admin","Administrator role");
 		roleDAO.insert(insertRole);
-		role = roleDAO.selectById(insertRole.getId());
+		Role role = roleDAO.selectById(insertRole.getId());
 		assertEquals("Select by Id should exist",role.getId(), insertRole.getId());
 		
 	}
@@ -59,7 +57,13 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testSelectAll() {
-		assertTrue("Select All",true);
+		int totalElements = roleDAO.selectAll().size();
+		
+		Role insertRole = new Role(null,"Admin","Administrator role");
+		roleDAO.insert(insertRole);
+		int totalElementsAfterInsert = roleDAO.selectAll().size();
+		
+		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
 	}
 
 	/**
@@ -75,7 +79,20 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testUpdate() {
-		assertTrue("Update",true);
+		String updatedName = "Admin changed";
+		
+		// Select after first insert
+		Role insertRole = new Role(null,"Admin","Administrator role");
+		roleDAO.insert(insertRole);
+		
+		// We update the role
+		insertRole.setName(updatedName);
+		roleDAO.update(insertRole);
+		
+		// Select and check if name has changed
+		Role updatedRole = roleDAO.selectById(insertRole.getId());
+		
+		assertEquals("Role name was changed", updatedName, updatedRole.getName());
 	}
 
 	/**
@@ -83,7 +100,15 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testDelete() {
-		assertTrue("Delete",true);
+		// Select after first insert
+		Role insertRole = new Role(null,"Admin","Administrator role");
+		roleDAO.insert(insertRole);
+		
+		// Delete 
+		roleDAO.delete(insertRole);
+		Role role = roleDAO.selectById(insertRole.getId());
+		assertNull("Select by Id with a deleted record id shoud be null",role);
+		
 	}
 
 }
