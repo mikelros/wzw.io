@@ -9,7 +9,7 @@ import io.wzw.backend.data.model.Role;
  */
 public interface RoleDAO {
 	
-	public Role selectById(Long id);
+	public Role selectById(Integer id);
 
 	public List<Role> selectAll();
 
