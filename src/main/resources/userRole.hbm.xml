@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Mapping configuration details between UserRole class and UserRole table -->
+<hibernate-mapping package="io.wzw.backend.data.model">
+
+	<class name="UserRole" table="user_role">
+		<id name="idauto" column="idauto">
+			<generator class="identity" />
+		</id>
+		<property name="iduser" column="iduser" />
+		<property name="idrole" column="idrole" />
+	</class>
+
+</hibernate-mapping>

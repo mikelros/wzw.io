@@ -12,6 +12,14 @@ import io.wzw.backend.data.model.UserRole;
 
 public class HibernateUserRoleDAO implements UserRoleDAO{
 
+	public UserRole selectByAutoId(Long autoId) {
+		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		UserRole userRole = (UserRole) session.get(UserRole.class, autoId);
+		session.close();
+		return userRole;
+	}
+	
 	public UserRole selectByIdUser(Long idUser) {
 		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
 		Session session = sessionFactory.openSession();
