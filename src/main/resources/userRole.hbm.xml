@@ -3,15 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<!-- Mapping configuration details between Role class and role table -->
+<!-- Mapping configuration details between UserRole class and UserRole table -->
 <hibernate-mapping package="io.wzw.backend.data.model">
 
-	<class name="Role" table="role">
-		<id name="id" column="id">
+	<class name="UserRole" table="user_role">
+		<id name="idauto" column="idauto">
 			<generator class="identity" />
 		</id>
-		<property name="Name" column="name" />
-		<property name="description" column="description" />
+		<property name="iduser" column="iduser" />
+		<property name="idrole" column="idrole" />
 	</class>
 
 </hibernate-mapping>

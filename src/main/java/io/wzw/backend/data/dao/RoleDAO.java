@@ -4,12 +4,12 @@ import java.util.List;
 import io.wzw.backend.data.model.Role;
 
 /**
- * @author Mikel
+ * @author David
  *
  */
 public interface RoleDAO {
 	
-	public Role selectById(Long id);
+	public Role selectById(Integer id);
 
 	public List<Role> selectAll();
 

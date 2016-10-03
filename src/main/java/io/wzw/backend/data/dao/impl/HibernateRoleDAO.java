@@ -16,7 +16,7 @@ import io.wzw.backend.data.model.Role;
  */
 public class HibernateRoleDAO implements RoleDAO {
 
-	public Role selectById(Long id) {
+	public Role selectById(Integer id) {
 		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		Role role = (Role) session.get(Role.class, id);
