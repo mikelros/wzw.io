@@ -4,7 +4,7 @@ import java.util.List;
 import io.wzw.backend.data.model.Role;
 
 /**
- * @author Mikel
+ * @author David
  *
  */
 public interface RoleDAO {
