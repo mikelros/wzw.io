@@ -1,11 +1,13 @@
 package io.wzw.backend.data.model;
 
+import java.io.Serializable;
+
 /**
  * Represents the user data
  * @author Mikel
  *
  */
-public class User {
+public class User implements Serializable{
 	private Integer id;
 	private String username;
 	private String password;
