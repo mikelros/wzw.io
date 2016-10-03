@@ -16,7 +16,7 @@ import io.wzw.backend.data.model.User;
  */
 public class HibernateUserDAO implements UserDAO {
 
-	public User selectById(Long id) {
+	public User selectById(Integer id) {
 		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		User user = (User) session.get(User.class, id);

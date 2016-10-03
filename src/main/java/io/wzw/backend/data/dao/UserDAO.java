@@ -9,7 +9,7 @@ import io.wzw.backend.data.model.User;
  */
 public interface UserDAO {
 	
-	public User selectById(Long id);
+	public User selectById(Integer id);
 
 	public List<User> selectAll();
 
