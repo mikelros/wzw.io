@@ -26,7 +26,9 @@
 
 		<!-- Here comes the mapping definition - saved in resources dir with this 
 			hibernate config -->
-
+		<mapping resource="role.hbm.xml" />
+		<mapping resource="user.hbm.xml" />
+		<mapping resource="userRole.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
