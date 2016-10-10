@@ -1,12 +1,12 @@
 package io.wzw.backend.data.model;
 
 public class UserRole {
-	private Integer idAuto;
+	private Integer autoId;
 	private Integer idUser;
 	private Integer idRole;
 
-	public UserRole(Integer idAuto, Integer idUser, Integer idRole) {
-		this.idAuto = idAuto;
+	public UserRole(Integer autoId, Integer idUser, Integer idRole) {
+		this.autoId = autoId;
 		this.idUser = idUser;
 		this.idRole = idRole;
 	}
@@ -15,12 +15,12 @@ public class UserRole {
 		
 	}
 	
-	public Integer getIdAuto() {
-		return idAuto;
+	public Integer getAutoId() {
+		return autoId;
 	}
 
-	public void setAutoID(Integer idAuto) {
-		this.idAuto = idAuto;
+	public void setAutoID(Integer autoId) {
+		this.autoId = autoId;
 	}
 	
 	public Integer getIdUser() {

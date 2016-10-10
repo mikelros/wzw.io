@@ -5,9 +5,9 @@ import io.wzw.backend.data.model.UserRole;
 
 public interface UserRoleDAO {
 
-	public UserRole selectByAutoId(Long id);
+	public UserRole selectByIdAuto(Integer id);
 	
-	public UserRole selectByIdUser(Long id);
+	public UserRole selectByIdUser(Integer id);
 	
-	public UserRole selectByIdRole(Long id);
+	public UserRole selectByIdRole(Integer id);
 }
