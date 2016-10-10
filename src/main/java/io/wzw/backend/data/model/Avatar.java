@@ -17,6 +17,7 @@ public class Avatar {
 		this.description = description;
 		this.image = image;
 	}
+	
 	public Integer getId() {
 		return id;
 	}

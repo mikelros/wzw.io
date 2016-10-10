@@ -57,6 +57,18 @@ CREATE TABLE `userrole` (
   `idrole` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `avatar`
+--
+
+CREATE TABLE `avatar` (
+  `id` int(11) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Índices para tablas volcadas
 --
@@ -79,6 +91,12 @@ ALTER TABLE `user`
 ALTER TABLE `userrole`
   ADD PRIMARY KEY (`idauto`);
 
+  --
+-- Indices de la tabla `avatar`
+--
+ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
+  
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -92,6 +110,11 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `avatar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `userrole`
