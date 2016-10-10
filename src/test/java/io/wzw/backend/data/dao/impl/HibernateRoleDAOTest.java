@@ -66,6 +66,7 @@ public class HibernateRoleDAOTest {
 		roleDAO.insert(insertRole);
 		
 		Role role = roleDAO.selectById(insertRole.getId());
+		
 		assertNotNull("Select by Id with a inserted record id shoudn't be null",role);
 	}
 
