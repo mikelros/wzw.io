@@ -29,6 +29,7 @@
 		<mapping resource="role.hbm.xml" />
 		<mapping resource="user.hbm.xml" />
 		<mapping resource="userRole.hbm.xml" />
+		<mapping resource="avatar.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
