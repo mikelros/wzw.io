@@ -62,7 +62,11 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testInsert() {
-		assertTrue("Insert",true);
+		Role insertRole = new Role(null, "Admin", "Administrator role");
+		roleDAO.insert(insertRole);
+		
+		Role role = roleDAO.selectById(insertRole.getId());
+		assertNotNull("Select by Id with a inserted record id shoudn't be null",role);
 	}
 
 	/**
