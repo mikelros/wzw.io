@@ -40,10 +40,10 @@ public class HibernateUserDAOTest {
 
 	@Test
 	public void testInsert() {
-		int id = 1234;
-		User insertUser = new User(id, "username", "password", "email");
+		int totalElements = userDAO.selectAll().size();
+		User insertUser = new User(null, "username", "password", "email");
 		userDAO.insert(insertUser);
-		assertEquals("User inserted", userDAO.selectById(id) , insertUser.getId());
+		assertEquals("User inserted", userDAO.selectAll().size() + 1, totalElements);
 	}
 
 	@Test
