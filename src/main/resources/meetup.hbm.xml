@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Mapping configuration details between User class and user table -->
+<hibernate-mapping package="io.wzw.backend.data.model">
+
+	<class name="Meetup" table="meetup">
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" />
+		<property name="description" column="description" />
+		<property name="since" column="since" />
+		<property name="meetup_date" column="meetup_date" />
+		<property name="open" column="open" />
+		<property name="latitude" column="latitude" />
+		<property name="langitude" column="langitude" />
+		
+		<!-- ONE TO MANY FALTA -->
+		<property name="idUser" column="iduser" />
+	</class>
+
+</hibernate-mapping>

@@ -30,6 +30,7 @@
 		<mapping resource="user.hbm.xml" />
 		<mapping resource="userRole.hbm.xml" />
 		<mapping resource="avatar.hbm.xml" />
+		<mapping resource="meetup.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

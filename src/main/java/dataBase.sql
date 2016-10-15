@@ -69,6 +69,24 @@ CREATE TABLE `avatar` (
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `meetup`
+--
+
+CREATE TABLE `meetup` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `since` date NOT NULL,
+  `meetup_date` date NOT NULL,
+  `open` int(11) NOT NULL,
+  `latitude` float NOT NULL,
+  `languitude` float NOT NULL,
+  `iduser` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Índices para tablas volcadas
 --
@@ -91,10 +109,16 @@ ALTER TABLE `user`
 ALTER TABLE `userrole`
   ADD PRIMARY KEY (`idauto`);
 
-  --
+--
 -- Indices de la tabla `avatar`
 --
 ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
+  
+--
+-- Indices de la tabla `avatar`
+--
+ALTER TABLE `meetup`
   ADD PRIMARY KEY (`id`);
   
 --
@@ -112,9 +136,14 @@ ALTER TABLE `role`
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `user`
+-- AUTO_INCREMENT de la tabla `avatar`
 --
 ALTER TABLE `avatar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `meetup`
+--
+ALTER TABLE `meetup`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `userrole`
