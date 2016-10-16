@@ -18,8 +18,7 @@
 		<property name="latitude" column="latitude" />
 		<property name="langitude" column="langitude" />
 		
-		<!-- ONE TO MANY FALTA -->
-		<property name="idUser" column="iduser" />
+		<many-to-one name="user" column="idUser" />
 	</class>
 
 </hibernate-mapping>

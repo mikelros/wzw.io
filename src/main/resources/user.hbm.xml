@@ -14,6 +14,11 @@
 		<property name="password" column="password" />
 		<property name="email" column="email" />
 		<one-to-one name="avatar"/>
+		<list name="meetups" cascade="all-delete-orphan">
+			<key column="id" />
+			<index column="meetup_order" />
+			<one-to-many class="Meetup" />
+		</list>
 	</class>
 
 </hibernate-mapping>
