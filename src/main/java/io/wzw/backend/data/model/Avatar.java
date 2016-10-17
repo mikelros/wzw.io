@@ -1,6 +1,8 @@
 package io.wzw.backend.data.model;
 
-public class Avatar {
+import java.io.Serializable;
+
+public class Avatar implements Serializable{
 	private Integer id;
 	private String description;
 	private String image;

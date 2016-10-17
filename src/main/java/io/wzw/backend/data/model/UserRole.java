@@ -1,6 +1,8 @@
 package io.wzw.backend.data.model;
 
-public class UserRole {
+import java.io.Serializable;
+
+public class UserRole implements Serializable{
 	private Integer idAuto;
 	private Integer idUser;
 	private Integer idRole;

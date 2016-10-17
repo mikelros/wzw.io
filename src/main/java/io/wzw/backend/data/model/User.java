@@ -1,6 +1,7 @@
 package io.wzw.backend.data.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Represents the user data
@@ -12,16 +13,17 @@ public class User implements Serializable{
 	private String username;
 	private String password;
 	private String email;
-	
+	private List<Meetup> meetups;
+
 	public User() {
-		
 	}
 	
-	public User(Integer id, String username, String password, String email) {
+	public User(Integer id, String username, String password, String email, List<Meetup> meetups) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.meetups = meetups;
 	}
 
 	public Integer getId() {
@@ -54,6 +56,14 @@ public class User implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public List<Meetup> getMeetups() {
+		return meetups;
+	}
+
+	public void setMeetups(List<Meetup> meetups) {
+		this.meetups = meetups;
 	}
 	
 }
