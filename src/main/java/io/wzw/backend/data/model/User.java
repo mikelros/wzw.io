@@ -13,11 +13,15 @@ public class User implements Serializable{
 	private String username;
 	private String password;
 	private String email;
+	private Avatar avatar;
+	
+
 	private List<Meetup> meetups;
 
 	public User() {
 	}
 	
+	//Crear avatars
 	public User(Integer id, String username, String password, String email, List<Meetup> meetups) {
 		this.id = id;
 		this.username = username;
@@ -66,4 +70,11 @@ public class User implements Serializable{
 		this.meetups = meetups;
 	}
 	
+	public Avatar getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(Avatar avatar) {
+		this.avatar = avatar;
+	}
 }

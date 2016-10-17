@@ -13,7 +13,7 @@
 		<property name="username" column="username" />
 		<property name="password" column="password" />
 		<property name="email" column="email" />
-		<one-to-one name="avatar"/>
+		<one-to-one name="avatar" cascade="persist,delete"/>
 		<list name="meetups" cascade="all-delete-orphan">
 			<key column="id" />
 			<index column="meetup_order" />
