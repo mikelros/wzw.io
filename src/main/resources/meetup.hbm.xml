@@ -16,7 +16,7 @@
 		<property name="meetup_date" column="meetup_date" />
 		<property name="open" column="open" />
 		<property name="latitude" column="latitude" />
-		<property name="langitude" column="langitude" />
+		<property name="longitude" column="longitude" />
 		
 		<many-to-one name="user" column="idUser" />
 	</class>

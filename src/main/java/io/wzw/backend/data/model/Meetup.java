@@ -11,7 +11,7 @@ public class Meetup implements Serializable{
 	private Date meetup_date;
 	private Integer open;
 	private Float latitude;
-	private Float languitude;
+	private Float longitude;
 	private User user;
 	
 	public Meetup() {
@@ -27,7 +27,7 @@ public class Meetup implements Serializable{
 		this.meetup_date = meetup_date;
 		this.open = open;
 		this.latitude = latitude;
-		this.languitude = languitude;
+		this.longitude = languitude;
 		this.user = user;
 	}
 
@@ -88,11 +88,11 @@ public class Meetup implements Serializable{
 	}
 
 	public Float getLanguitude() {
-		return languitude;
+		return longitude;
 	}
 
 	public void setLanguitude(Float languitude) {
-		this.languitude = languitude;
+		this.longitude = languitude;
 	}
 
 	public User getIdUser() {

@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- --------------------------------------------------------
 
+CREATE DATABASE wzwdb DEFAULT CHARSET=utf8;
+
 --
 -- Estructura de tabla para la tabla `role`
 --
@@ -82,7 +84,7 @@ CREATE TABLE `meetup` (
   `meetup_date` date NOT NULL,
   `open` int(11) NOT NULL,
   `latitude` float NOT NULL,
-  `languitude` float NOT NULL,
+  `longitude` float NOT NULL,
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,7 +117,7 @@ ALTER TABLE `avatar`
   ADD PRIMARY KEY (`id`);
   
 --
--- Indices de la tabla `avatar`
+-- Indices de la tabla `meetup`
 --
 ALTER TABLE `meetup`
   ADD PRIMARY KEY (`id`);
