@@ -6,7 +6,9 @@ public class Avatar implements Serializable{
 	private Integer id;
 	private String description;
 	private String image;
+	private User user;
 	
+
 	public Avatar() { }
 	
 	/**
@@ -14,10 +16,11 @@ public class Avatar implements Serializable{
 	 * @param description
 	 * @param image
 	 */
-	public Avatar(Integer id, String description, String image) {
+	public Avatar(Integer id, String description, String image, User user) {
 		this.id = id;
 		this.description = description;
 		this.image = image;
+		this.user = user;
 	}
 	
 	public Integer getId() {
@@ -39,5 +42,12 @@ public class Avatar implements Serializable{
 		this.image = image;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 }

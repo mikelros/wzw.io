@@ -7,11 +7,11 @@
 <hibernate-mapping package="io.wzw.backend.data.model">
 
 	<class name="UserRole" table="user_role">
-		<id name="idauto" column="idauto">
+		<id name="idAuto" column="idauto">
 			<generator class="identity" />
 		</id>
-		<property name="iduser" column="iduser" />
-		<property name="idrole" column="idrole" />
+		<property name="idUser" column="iduser" />
+		<property name="idRole" column="idrole" />
 	</class>
 
 </hibernate-mapping>

@@ -13,6 +13,7 @@ import org.junit.Test;
 import io.wzw.backend.data.dao.AvatarDAO;
 import io.wzw.backend.data.dao.impl.HibernateAvatarDAO;
 import io.wzw.backend.data.model.Avatar;
+import io.wzw.backend.data.model.User;
 
 public class HibernateAvatarDAOTest {
 
@@ -36,7 +37,7 @@ public class HibernateAvatarDAOTest {
 	@Test
 	public void testSelectById() {
 		// Select after insert
-		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role");
+		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		Avatar avatar = avatarDAO.selectById(insertAvatar.getId());
 		assertEquals("Select by Id should exist",avatar.getId(), insertAvatar.getId());
@@ -50,7 +51,7 @@ public class HibernateAvatarDAOTest {
 	public void testSelectAll() {
 		int totalElements = avatarDAO.selectAll().size();
 		
-		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role");
+		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		int totalElementsAfterInsert = avatarDAO.selectAll().size();
 		
@@ -62,7 +63,7 @@ public class HibernateAvatarDAOTest {
 	 */
 	@Test
 	public void testInsert() {
-		Avatar insertAvatar = new Avatar(null, "Admin", "Administrator role");
+		Avatar insertAvatar = new Avatar(null, "Admin", "Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		
 		Avatar avatar = avatarDAO.selectById(insertAvatar.getId());
@@ -78,7 +79,7 @@ public class HibernateAvatarDAOTest {
 		String updatedName = "Admin changed";
 		
 		// Select after first insert
-		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role");
+		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		
 		// We update the role
@@ -97,7 +98,7 @@ public class HibernateAvatarDAOTest {
 	@Test
 	public void testDelete() {
 		// Select after first insert
-		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role");
+		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		
 		// Delete 
