@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import io.wzw.backend.data.dao.UserDAO;
 import io.wzw.backend.data.model.User;
+import io.wzw.backend.data.model.Avatar;
 import io.wzw.backend.data.model.Meetup;
 
 public class HibernateUserDAOTest {
@@ -24,7 +25,7 @@ public class HibernateUserDAOTest {
 
 	@Test
 	public void testSelectById() {
-		User insertUser = new User(1234, "username", "password", "email", null);
+		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
 		User user = userDAO.selectById(insertUser.getId());
 		assertEquals("Select by Id should exist",user.getId(), insertUser.getId());
@@ -34,7 +35,7 @@ public class HibernateUserDAOTest {
 	public void testSelectAll() {
 		int totalElements = userDAO.selectAll().size();
 		
-		User insertUser = new User(1234, "username", "password", "email", null);
+		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
 		int totalElementsAfterInsert = userDAO.selectAll().size();
 		
@@ -44,7 +45,7 @@ public class HibernateUserDAOTest {
 	@Test
 	public void testInsert() {
 		int totalElements = userDAO.selectAll().size();
-		User insertUser = new User(null, "username", "password", "email", null);
+		User insertUser = new User(null, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
 		assertEquals("User inserted", userDAO.selectAll().size() + 1, totalElements);
 	}
@@ -54,7 +55,7 @@ public class HibernateUserDAOTest {
 		String updatedEmail = "email2";
 		
 		// Select after first insert
-		User insertUser = new User(1234, "username", "password", "email", null);
+		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
 		
 		// We update the role
@@ -70,7 +71,7 @@ public class HibernateUserDAOTest {
 	@Test
 	public void testDelete() {
 		// Select after first insert
-		User insertUser = new User(1234, "username", "password", "email", null);
+		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
 		
 		// Delete 

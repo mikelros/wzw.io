@@ -14,20 +14,18 @@ public class User implements Serializable{
 	private String password;
 	private String email;
 	private Avatar avatar;
-	
-
 	private List<Meetup> meetups;
 
 	public User() {
 	}
 	
-	//Crear avatars
-	public User(Integer id, String username, String password, String email, List<Meetup> meetups) {
+	public User(Integer id, String username, String password, String email, Avatar avatar, List<Meetup> meetups) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.meetups = meetups;
+		this.avatar = avatar;
 	}
 
 	public Integer getId() {
