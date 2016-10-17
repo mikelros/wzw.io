@@ -1,8 +1,9 @@
 package io.wzw.backend.data.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Meetup {
+public class Meetup implements Serializable{
 	private Integer id;
 	private String name;
 	private String description;
@@ -11,13 +12,13 @@ public class Meetup {
 	private Integer open;
 	private Float latitude;
 	private Float languitude;
-	private Integer idUser;
+	private User user;
 	
 	public Meetup() {
 	}
 
 	public Meetup(Integer id, String name, String description, Date since, Date meetup_date, Integer open,
-			Float latitude, Float languitude, Integer idUser) {
+			Float latitude, Float languitude, User user) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,7 +28,7 @@ public class Meetup {
 		this.open = open;
 		this.latitude = latitude;
 		this.languitude = languitude;
-		this.idUser = idUser;
+		this.user = user;
 	}
 
 	public Integer getId() {
@@ -94,12 +95,12 @@ public class Meetup {
 		this.languitude = languitude;
 	}
 
-	public Integer getIdUser() {
-		return idUser;
+	public User getIdUser() {
+		return user;
 	}
 
-	public void setIdUser(Integer idUser) {
-		this.idUser = idUser;
+	public void setIdUser(User user) {
+		this.user = user;
 	}
 	
 	
