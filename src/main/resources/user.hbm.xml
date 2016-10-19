@@ -13,10 +13,10 @@
 		<property name="username" column="username" />
 		<property name="password" column="password" />
 		<property name="email" column="email" />
-		<one-to-one name="avatar" cascade="persist,delete"/>
-		<list name="meetups" cascade="all-delete-orphan">
+		<one-to-one name="avatar"/>
+		<list name="meetups" cascade="all">
 			<key column="id" />
-			<index column="meetup_order" />
+			<list-index column="meetup_order" />
 			<one-to-many class="Meetup" />
 		</list>
 	</class>
