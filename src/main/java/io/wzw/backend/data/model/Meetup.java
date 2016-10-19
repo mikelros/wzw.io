@@ -87,21 +87,23 @@ public class Meetup implements Serializable{
 		this.latitude = latitude;
 	}
 
-	public Float getLanguitude() {
+	public Float getLongitude() {
 		return longitude;
 	}
 
-	public void setLanguitude(Float languitude) {
-		this.longitude = languitude;
+	public void setLongitude(Float longitude) {
+		this.longitude = longitude;
 	}
 
-	public User getIdUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setIdUser(User user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
+
+	
 	
 	
 	
