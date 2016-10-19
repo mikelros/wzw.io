@@ -6,7 +6,7 @@
 <!-- Mapping configuration details between UserRole class and UserRole table -->
 <hibernate-mapping package="io.wzw.backend.data.model">
 
-	<class name="UserRole" table="user_role">
+	<class name="UserRole" table="userrole">
 		<id name="idAuto" column="idauto">
 			<generator class="identity" />
 		</id>

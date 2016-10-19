@@ -16,15 +16,15 @@ public class UserRole implements Serializable{
 	public UserRole(){
 		
 	}
-	
+
 	public Integer getIdAuto() {
 		return idAuto;
 	}
 
-	public void setAutoID(Integer idAuto) {
+	public void setIdAuto(Integer idAuto) {
 		this.idAuto = idAuto;
 	}
-	
+
 	public Integer getIdUser() {
 		return idUser;
 	}
@@ -40,6 +40,8 @@ public class UserRole implements Serializable{
 	public void setIdRole(Integer idRole) {
 		this.idRole = idRole;
 	}
+	
+	
 
 	
 }

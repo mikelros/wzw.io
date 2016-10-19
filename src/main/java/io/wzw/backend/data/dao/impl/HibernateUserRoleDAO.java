@@ -52,7 +52,7 @@ public class HibernateUserRoleDAO implements UserRoleDAO{
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		Integer id = (Integer) session.save(userRole);
-		userRole.setAutoID(id);
+		userRole.setIdAuto(id);
 		session.getTransaction().commit();
 		session.close();
 	}
