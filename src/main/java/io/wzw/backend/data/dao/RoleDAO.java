@@ -8,7 +8,7 @@ import io.wzw.backend.data.model.Role;
  *
  */
 public interface RoleDAO {
-	
+
 	public Role selectById(Integer id);
 
 	public List<Role> selectAll();
@@ -18,5 +18,5 @@ public interface RoleDAO {
 	public void update(Role role);
 
 	public void delete(Role role);
-	
+
 }

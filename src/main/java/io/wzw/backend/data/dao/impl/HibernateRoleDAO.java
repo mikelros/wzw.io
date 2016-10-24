@@ -11,6 +11,7 @@ import io.wzw.backend.data.model.Role;
 
 /**
  * Hibernate specific Role DAO
+ * 
  * @author David
  *
  */
@@ -40,7 +41,7 @@ public class HibernateRoleDAO implements RoleDAO {
 		role.setId(id);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void update(Role role) {
@@ -50,7 +51,7 @@ public class HibernateRoleDAO implements RoleDAO {
 		session.merge(role);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void delete(Role role) {
@@ -60,7 +61,7 @@ public class HibernateRoleDAO implements RoleDAO {
 		session.delete(role);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
-	
+
 }

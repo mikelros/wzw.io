@@ -9,8 +9,8 @@ import io.wzw.backend.data.HibernateSession;
 import io.wzw.backend.data.dao.MeetupDAO;
 import io.wzw.backend.data.model.Meetup;
 
-public class HibernateMeetupDAO implements MeetupDAO{
-	
+public class HibernateMeetupDAO implements MeetupDAO {
+
 	public Meetup selectById(Integer id) {
 		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -35,7 +35,7 @@ public class HibernateMeetupDAO implements MeetupDAO{
 		meetup.setId(id);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void update(Meetup meetup) {
@@ -45,7 +45,7 @@ public class HibernateMeetupDAO implements MeetupDAO{
 		session.merge(meetup);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void delete(Meetup meetup) {
@@ -55,6 +55,6 @@ public class HibernateMeetupDAO implements MeetupDAO{
 		session.delete(meetup);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 }

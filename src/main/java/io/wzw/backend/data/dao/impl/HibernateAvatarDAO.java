@@ -9,8 +9,8 @@ import io.wzw.backend.data.HibernateSession;
 import io.wzw.backend.data.dao.AvatarDAO;
 import io.wzw.backend.data.model.Avatar;
 
-public class HibernateAvatarDAO implements AvatarDAO{
-	
+public class HibernateAvatarDAO implements AvatarDAO {
+
 	public Avatar selectById(Integer id) {
 		SessionFactory sessionFactory = HibernateSession.getSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -35,7 +35,7 @@ public class HibernateAvatarDAO implements AvatarDAO{
 		avatar.setId(id);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void update(Avatar avatar) {
@@ -45,7 +45,7 @@ public class HibernateAvatarDAO implements AvatarDAO{
 		session.merge(avatar);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void delete(Avatar avatar) {
@@ -55,6 +55,6 @@ public class HibernateAvatarDAO implements AvatarDAO{
 		session.delete(avatar);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 }

@@ -7,10 +7,11 @@ import java.util.Set;
 
 /**
  * Represents the user data
+ * 
  * @author Mikel
  *
  */
-public class User implements Serializable{
+public class User implements Serializable {
 	private Integer id;
 	private String username;
 	private String password;
@@ -90,7 +91,5 @@ public class User implements Serializable{
 	public void setMeetups(List<Meetup> meetups) {
 		this.meetups = meetups;
 	}
-	
-	
-	
+
 }

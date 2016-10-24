@@ -2,15 +2,15 @@ package io.wzw.backend.data.model;
 
 import java.io.Serializable;
 
-public class Avatar implements Serializable{
+public class Avatar implements Serializable {
 	private Integer id;
 	private String description;
 	private String image;
 	private User user;
-	
 
-	public Avatar() { }
-	
+	public Avatar() {
+	}
+
 	/**
 	 * @param id
 	 * @param description
@@ -22,26 +22,31 @@ public class Avatar implements Serializable{
 		this.image = image;
 		this.user = user;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getImage() {
 		return image;
 	}
+
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -49,5 +54,5 @@ public class Avatar implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 }

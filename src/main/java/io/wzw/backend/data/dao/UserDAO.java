@@ -8,7 +8,7 @@ import io.wzw.backend.data.model.User;
  *
  */
 public interface UserDAO {
-	
+
 	public User selectById(Integer id);
 
 	public List<User> selectAll();
@@ -18,5 +18,5 @@ public interface UserDAO {
 	public void update(User user);
 
 	public void delete(User user);
-	
+
 }

@@ -18,11 +18,9 @@ public class HibernateSession {
 	private static SessionFactory buildSessionFactory() {
 		Configuration configuration = new Configuration();
 		configuration.configure();
-		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
-				.applySettings(configuration.getProperties())
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
 				.buildServiceRegistry();
-		SessionFactory sessionFactory = configuration
-				.buildSessionFactory(serviceRegistry);
+		SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		return sessionFactory;
 	}
 

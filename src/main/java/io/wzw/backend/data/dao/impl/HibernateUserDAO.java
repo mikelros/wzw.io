@@ -11,6 +11,7 @@ import io.wzw.backend.data.model.User;
 
 /**
  * Hibernate specific User DAO
+ * 
  * @author Mikel
  *
  */
@@ -40,7 +41,7 @@ public class HibernateUserDAO implements UserDAO {
 		user.setId(id);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void update(User user) {
@@ -50,7 +51,7 @@ public class HibernateUserDAO implements UserDAO {
 		session.merge(user);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
 	public void delete(User user) {
@@ -60,7 +61,7 @@ public class HibernateUserDAO implements UserDAO {
 		session.delete(user);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
-	
+
 }
