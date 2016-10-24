@@ -10,7 +10,6 @@ import org.junit.Test;
 import io.wzw.backend.data.dao.UserDAO;
 import io.wzw.backend.data.model.User;
 import io.wzw.backend.data.model.Avatar;
-import io.wzw.backend.data.model.Meetup;
 
 public class HibernateUserDAOTest {
 	private UserDAO userDAO;
@@ -47,7 +46,10 @@ public class HibernateUserDAOTest {
 		int totalElements = userDAO.selectAll().size();
 		User insertUser = new User(null, "username", "password", "email", new Avatar(), null);
 		userDAO.insert(insertUser);
-		assertEquals("User inserted", userDAO.selectAll().size() + 1, totalElements);
+		
+		User user = userDAO.selectById(insertUser.getId());
+		
+		assertNotNull("Select by Id with a inserted record id shoudn't be null", user);
 	}
 
 	@Test
