@@ -20,8 +20,8 @@
 			<one-to-many class="Meetup" />
 		</list>
 		<set name="roles" cascade="all">
-         <key column="id"/>
-         <many-to-many class="Role" column="id"/>
+         <key column="idrole"/>
+         <many-to-many class="Role" column="iduser"/>
       </set>
 	</class>
 

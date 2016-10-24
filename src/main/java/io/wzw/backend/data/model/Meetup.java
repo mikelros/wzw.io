@@ -3,7 +3,7 @@ package io.wzw.backend.data.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Meetup implements Serializable{
+public class Meetup implements Serializable {
 	private Integer id;
 	private String name;
 	private String description;
@@ -13,7 +13,7 @@ public class Meetup implements Serializable{
 	private Float latitude;
 	private Float longitude;
 	private User user;
-	
+
 	public Meetup() {
 	}
 
@@ -103,8 +103,4 @@ public class Meetup implements Serializable{
 		this.user = user;
 	}
 
-	
-	
-	
-	
 }
