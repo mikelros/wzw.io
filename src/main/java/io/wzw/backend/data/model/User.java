@@ -1,7 +1,9 @@
 package io.wzw.backend.data.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents the user data
@@ -14,18 +16,23 @@ public class User implements Serializable{
 	private String password;
 	private String email;
 	private Avatar avatar;
+	private Set<Role> roles;
 	private List<Meetup> meetups;
 
 	public User() {
+		roles = new HashSet<Role>();
 	}
-	
-	public User(Integer id, String username, String password, String email, Avatar avatar, List<Meetup> meetups) {
+
+	public User(Integer id, String username, String password, String email, Avatar avatar, Set<Role> roles,
+			List<Meetup> meetups) {
+		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.meetups = meetups;
 		this.avatar = avatar;
+		this.roles = roles;
+		this.meetups = meetups;
 	}
 
 	public Integer getId() {
@@ -59,7 +66,23 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public Avatar getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(Avatar avatar) {
+		this.avatar = avatar;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
 	public List<Meetup> getMeetups() {
 		return meetups;
 	}
@@ -68,11 +91,6 @@ public class User implements Serializable{
 		this.meetups = meetups;
 	}
 	
-	public Avatar getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(Avatar avatar) {
-		this.avatar = avatar;
-	}
+	
+	
 }

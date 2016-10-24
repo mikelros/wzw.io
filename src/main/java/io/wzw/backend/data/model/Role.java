@@ -1,79 +1,58 @@
 package io.wzw.backend.data.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Role implements Serializable{
 	private Integer id;
 	private String name;
 	private String description;
+	private Set<User> users;
 	
 	public Role(){
-		
+		users = new HashSet<User>();
 	}
-	
-	/**
-	 * Constructor with all attributes
-	 * 
-	 * @param id
-	 * @param name
-	 * @param description
-	 */
-	public Role(Integer id, String name, String description) {
+
+	public Role(Integer id, String name, String description, Set<User> users) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.users = users;
 	}
 
-	/**
-	 * 
-	 * @return id
-	 * 			
-	 */
 	public Integer getId() {
 		return id;
 	}
-	
-	/**
-	 * 
-	 * @param id
-	 * 			the id to set
-	 */
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/**
-	 * 
-	 * @return name
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * 				the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * 
-	 * @return description
-	 */
 	public String getDescription() {
 		return description;
 	}
 
-	/**
-	 * 
-	 * @param description
-	 * 					the email to set
-	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
 	
 }

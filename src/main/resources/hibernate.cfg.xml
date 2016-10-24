@@ -28,7 +28,6 @@
 			hibernate config -->
 		<mapping resource="role.hbm.xml" />
 		<mapping resource="user.hbm.xml" />
-		<mapping resource="userRole.hbm.xml" />
 		<mapping resource="avatar.hbm.xml" />
 		<mapping resource="meetup.hbm.xml" />
 	</session-factory>
