@@ -20,6 +20,7 @@ public class HibernateMeetupDAOTest {
 
 	private MeetupDAO meetupDAO;
 
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
