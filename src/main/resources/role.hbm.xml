@@ -12,9 +12,9 @@
 		</id>
 		<property name="Name" column="name" />
 		<property name="description" column="description" />
-		<set name="users" inverse="true">
+		<set name="users" inverse="true" table="userrole" lazy="false" fetch="select">
          <key column="iduser"/>
-         <many-to-many class="User" column="idrole" />
+         <many-to-many class="User" column="iduser" />
       </set>
 	</class>
 

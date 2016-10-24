@@ -19,9 +19,9 @@
 			<list-index column="meetup_order" />
 			<one-to-many class="Meetup" />
 		</list>
-		<set name="roles" cascade="all">
-         <key column="idrole"/>
-         <many-to-many class="Role" column="iduser"/>
+		<set name="roles" cascade="all" table="userrole" lazy="false" fetch="select">
+         <key column="iduser"/>
+         <many-to-many class="Role" column="idrole"/>
       </set>
 	</class>
 
