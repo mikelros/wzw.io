@@ -2,6 +2,7 @@ package io.wzw.backend.data.dao.impl;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -36,7 +37,7 @@ public class HibernateRoleDAOTest {
 	@Test
 	public void testSelectById() {
 		// Select after insert
-		Role insertRole = new Role(null,"Admin","Administrator role");
+		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		Role role = roleDAO.selectById(insertRole.getId());
 		assertEquals("Select by Id should exist",role.getId(), insertRole.getId());
@@ -50,7 +51,7 @@ public class HibernateRoleDAOTest {
 	public void testSelectAll() {
 		int totalElements = roleDAO.selectAll().size();
 		
-		Role insertRole = new Role(null,"Admin","Administrator role");
+		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		int totalElementsAfterInsert = roleDAO.selectAll().size();
 		
@@ -62,7 +63,7 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testInsert() {
-		Role insertRole = new Role(null, "Admin", "Administrator role");
+		Role insertRole = new Role(null, "Admin", "Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		
 		Role role = roleDAO.selectById(insertRole.getId());
@@ -78,7 +79,7 @@ public class HibernateRoleDAOTest {
 		String updatedName = "Admin changed";
 		
 		// Select after first insert
-		Role insertRole = new Role(null,"Admin","Administrator role");
+		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		
 		// We update the role
@@ -97,7 +98,7 @@ public class HibernateRoleDAOTest {
 	@Test
 	public void testDelete() {
 		// Select after first insert
-		Role insertRole = new Role(null,"Admin","Administrator role");
+		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		
 		// Delete 
