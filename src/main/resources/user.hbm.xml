@@ -19,6 +19,10 @@
 			<list-index column="meetup_order" />
 			<one-to-many class="Meetup" />
 		</list>
+		<set name="roles" cascade="all">
+         <key column="id"/>
+         <many-to-many class="Role" column="id"/>
+      </set>
 	</class>
 
 </hibernate-mapping>

@@ -12,6 +12,10 @@
 		</id>
 		<property name="Name" column="name" />
 		<property name="description" column="description" />
+		<set name="users" inverse="true">
+         <key column="id"/>
+         <many-to-many class="User" column="id" />
+      </set>
 	</class>
 
 </hibernate-mapping>
