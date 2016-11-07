@@ -32,13 +32,15 @@ public class HibernateUserDAOTest {
 
 	@Test
 	public void testSelectAll() {
-		int totalElements = userDAO.selectAll(User.class).size();
-		
-		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null, null);
-		userDAO.insert(insertUser);
-		int totalElementsAfterInsert = userDAO.selectAll(User.class).size();
-		
-		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
+		List<User> users = userDAO.selectAll(User.class);
+
+			int totalElements = users.size();
+			
+			User insertUser = new User(1234, "username", "password", "email", new Avatar(), null, null);
+			userDAO.insert(insertUser);
+			int totalElementsAfterInsert = userDAO.selectAll(User.class).size();
+			
+			assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
 	}
 
 	@Test

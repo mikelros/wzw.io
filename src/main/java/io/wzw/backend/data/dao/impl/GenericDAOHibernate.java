@@ -14,10 +14,11 @@ import io.wzw.backend.data.dao.GenericDAO;
 
 /**
  * generic DAO
+ * 
  * @author Eugenia Pérez
  * @email eugenia_perez@cuatrovientos.org
  */
-public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
+public class GenericDAOHibernate<T> implements GenericDAO<T>, Serializable {
 
 	private Session session;
 
@@ -26,7 +27,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 	 */
 	protected void startTransaction() {
 		session = HibernateSession.getSession();
-		
+
 		session.getTransaction().begin();
 	}
 
@@ -34,19 +35,19 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 	 * ends transaction
 	 */
 	protected void endTransaction() {
-		session.getTransaction().commit();
-		session.close();
+			session.getTransaction().commit();
+			session.close();
 	}
 
 	/**
 	 * handles exception, rolls back operations
+	 * 
 	 * @param he
 	 * @throws HibernateException
 	 */
-	protected void handleException(HibernateException he)
-			throws HibernateException {
+	protected void handleException(HibernateException he) throws HibernateException {
 		System.out.println("Exception: " + he.getMessage());
-		
+
 		if (null != session && session.isOpen()) {
 			session.getTransaction().rollback();
 		}
@@ -55,6 +56,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 
 	/**
 	 * returns Hibernate Session instance
+	 * 
 	 * @return
 	 */
 	protected Session getSession() {
@@ -74,7 +76,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 			endTransaction();
 		}
 	}
-	
+
 	/**
 	 * saveOrUpdate
 	 */
@@ -91,13 +93,13 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 
 	/**
 	 * finds one entity
+	 * 
 	 * @param id
 	 * @param entityClass
 	 * @return
 	 * @throws HibernateException
 	 */
-	public T selectById(Serializable id, Class<T> entityClass)
-			throws HibernateException {
+	public T selectById(Serializable id, Class<T> entityClass) throws HibernateException {
 		T obj = null;
 		try {
 			startTransaction();
@@ -112,6 +114,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 
 	/**
 	 * get all entities
+	 * 
 	 * @param entityClass
 	 * @return
 	 * @throws HibernateException
@@ -120,11 +123,10 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 		List<T> result = null;
 		try {
 			startTransaction();
-			result = getSession().createQuery(
-					"From " + entityClass.getSimpleName()).list();
+			result = getSession().createQuery("From " + entityClass.getSimpleName()).list();
 
 		} catch (HibernateException he) {
-			
+
 			handleException(he);
 		} finally {
 			endTransaction();
@@ -132,9 +134,11 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 		return result;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see com.sistema.ud4.u4act11.dao.GenericDAOInterface#delete(java.lang.Object)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.sistema.ud4.u4act11.dao.GenericDAOInterface#delete(java.lang.Object)
 	 */
 	public void delete(T entityClass) throws HibernateException {
 		try {
@@ -146,8 +150,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 		} finally {
 			endTransaction();
 		}
-		
+
 	}
-	
 
 }

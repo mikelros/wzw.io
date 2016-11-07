@@ -1,13 +1,21 @@
 package io.wzw.backend.data;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+
+
+  
+/**
+ * provide Hibernate Session factory
+ * @author Eugenia Pérez
+ * @email eugenia_perez@cuatrovientos.org
+ */
 public class HibernateSession {
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+  
+    private static final SessionFactory sessionFactory = buildSessionFactory();
     private static Session session;
   
     /**
@@ -36,8 +44,7 @@ public class HibernateSession {
      * @return Hibernate Session
      */
     public static Session getSession () {
-    	if (null == session) {
-
+    	if (null == session || !session.isOpen()) {
     		session = sessionFactory.openSession();
     	}
     	
