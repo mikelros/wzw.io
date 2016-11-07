@@ -17,7 +17,7 @@ import io.wzw.backend.data.dao.GenericDAO;
  * @author Eugenia Pérez
  * @email eugenia_perez@cuatrovientos.org
  */
-public class GenericDAOHibernate<T> implements GenericDAO<T> {
+public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 
 	private Session session;
 
