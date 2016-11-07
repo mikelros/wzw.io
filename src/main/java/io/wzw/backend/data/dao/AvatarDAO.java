@@ -3,16 +3,8 @@ package io.wzw.backend.data.dao;
 import java.util.List;
 
 import io.wzw.backend.data.model.Avatar;
+import io.wzw.backend.data.model.User;
 
-public interface AvatarDAO {
+public interface AvatarDAO extends GenericDAO<Avatar>{
 	
-	public Avatar selectById(Integer id);
-
-	public List<Avatar> selectAll();
-
-	public void insert(Avatar avatar);
-
-	public void update(Avatar avatar);
-
-	public void delete(Avatar avatar);
 }

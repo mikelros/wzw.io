@@ -26,28 +26,28 @@ public class HibernateUserDAOTest {
 	public void testSelectById() {
 		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null, null);
 		userDAO.insert(insertUser);
-		User user = userDAO.selectById(insertUser.getId());
+		User user = userDAO.selectById(insertUser.getId(), User.class);
 		assertEquals("Select by Id should exist",user.getId(), insertUser.getId());
 	}
 
 	@Test
 	public void testSelectAll() {
-		int totalElements = userDAO.selectAll().size();
+		int totalElements = userDAO.selectAll(User.class).size();
 		
 		User insertUser = new User(1234, "username", "password", "email", new Avatar(), null, null);
 		userDAO.insert(insertUser);
-		int totalElementsAfterInsert = userDAO.selectAll().size();
+		int totalElementsAfterInsert = userDAO.selectAll(User.class).size();
 		
 		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
 	}
 
 	@Test
 	public void testInsert() {
-		int totalElements = userDAO.selectAll().size();
+		int totalElements = userDAO.selectAll(User.class).size();
 		User insertUser = new User(null, "username", "password", "email", new Avatar(), null, null);
 		userDAO.insert(insertUser);
 		
-		User user = userDAO.selectById(insertUser.getId());
+		User user = userDAO.selectById(insertUser.getId(), User.class);
 		
 		assertNotNull("Select by Id with a inserted record id shoudn't be null", user);
 	}
@@ -65,7 +65,7 @@ public class HibernateUserDAOTest {
 		userDAO.update(insertUser);
 		
 		// Select and check if name has changed
-		User updatedUser = userDAO.selectById(insertUser.getId());
+		User updatedUser = userDAO.selectById(insertUser.getId(), User.class);
 		
 		assertEquals("User name was changed", updatedEmail, updatedUser.getEmail());
 	}
@@ -78,7 +78,7 @@ public class HibernateUserDAOTest {
 		
 		// Delete 
 		userDAO.delete(insertUser);
-		User user = userDAO.selectById(insertUser.getId());
+		User user = userDAO.selectById(insertUser.getId(), User.class);
 		assertNull("Select by Id with a deleted record id shoud be null", user);
 	}
 
