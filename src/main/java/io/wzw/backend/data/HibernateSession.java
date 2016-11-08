@@ -36,7 +36,7 @@ public class HibernateSession {
      * @return Hibernate Session
      */
     public static Session getSession () {
-    	if (null == session) {
+    	if (null == session || !session.isOpen()) {
 
     		session = sessionFactory.openSession();
     	}
