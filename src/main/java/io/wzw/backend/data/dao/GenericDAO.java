@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.HibernateException;
-//ñe
+
 public interface GenericDAO<T> {
 	public T selectById(Serializable id, Class<T> entityClass) throws HibernateException;
 	public List<T> selectAll (Class<T> entity) throws HibernateException;

@@ -39,7 +39,7 @@ public class HibernateRoleDAOTest {
 		// Select after insert
 		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
-		Role role = roleDAO.selectById(insertRole.getId());
+		Role role = roleDAO.selectById(insertRole.getId(), Role.class);
 		assertEquals("Select by Id should exist",role.getId(), insertRole.getId());
 		
 	}
@@ -49,13 +49,17 @@ public class HibernateRoleDAOTest {
 	 */
 	@Test
 	public void testSelectAll() {
-		int totalElements = roleDAO.selectAll().size();
+		List<Role> lis = roleDAO.selectAll(Role.class);
+		if (lis != null) {
+			int totalElements = lis.size();
 		
 		Role insertRole = new Role(null,"Admin","Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
-		int totalElementsAfterInsert = roleDAO.selectAll().size();
+		int totalElementsAfterInsert = roleDAO.selectAll(Role.class).size();
 		
 		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
+		}
+		
 	}
 
 	/**
@@ -66,7 +70,7 @@ public class HibernateRoleDAOTest {
 		Role insertRole = new Role(null, "Admin", "Administrator role", new HashSet());
 		roleDAO.insert(insertRole);
 		
-		Role role = roleDAO.selectById(insertRole.getId());
+		Role role = roleDAO.selectById(insertRole.getId(), Role.class);
 		
 		assertNotNull("Select by Id with a inserted record id shoudn't be null",role);
 	}
@@ -87,7 +91,7 @@ public class HibernateRoleDAOTest {
 		roleDAO.update(insertRole);
 		
 		// Select and check if name has changed
-		Role updatedRole = roleDAO.selectById(insertRole.getId());
+		Role updatedRole = roleDAO.selectById(insertRole.getId(), Role.class);
 		
 		assertEquals("Role name was changed", updatedName, updatedRole.getName());
 	}
@@ -103,7 +107,7 @@ public class HibernateRoleDAOTest {
 		
 		// Delete 
 		roleDAO.delete(insertRole);
-		Role role = roleDAO.selectById(insertRole.getId());
+		Role role = roleDAO.selectById(insertRole.getId(), Role.class);
 		assertNull("Select by Id with a deleted record id shoud be null",role);
 		
 	}
