@@ -40,7 +40,7 @@ public class HibernateMeetupDAOTest {
 		// Select after insert
 		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 				meetupDAO.insert(insertMeetup);
-		Meetup meetup = meetupDAO.selectById(insertMeetup.getId());
+		Meetup meetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
 		assertEquals("Select by Id should exist",meetup.getId(), insertMeetup.getId());
 		
 	}
@@ -50,10 +50,10 @@ public class HibernateMeetupDAOTest {
 	 */
 	@Test
 	public void testSelectAll() {
-		int totalElements = meetupDAO.selectAll().size();
+		int totalElements = meetupDAO.selectAll(Meetup.class).size();
 		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
-		int totalElementsAfterInsert = meetupDAO.selectAll().size();
+		int totalElementsAfterInsert = meetupDAO.selectAll(Meetup.class).size();
 		
 		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
 	}
@@ -66,7 +66,7 @@ public class HibernateMeetupDAOTest {
 		Meetup insertMeetup =  new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
 		
-		Meetup meetup = meetupDAO.selectById(insertMeetup.getId());
+		Meetup meetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
 		
 		assertNotNull("Select by Id with a inserted record id shoudn't be null",meetup);
 	}
@@ -87,7 +87,7 @@ public class HibernateMeetupDAOTest {
 		meetupDAO.update(insertMeetup);
 		
 		// Select and check if name has changed
-		Meetup updatedMeetup = meetupDAO.selectById(insertMeetup.getId());
+		Meetup updatedMeetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
 		
 		assertEquals("Role name was changed", updatedName, updatedMeetup.getName());
 	}
@@ -103,7 +103,7 @@ public class HibernateMeetupDAOTest {
 		
 		// Delete 
 		meetupDAO.delete(insertMeetup);
-		Meetup memetup = meetupDAO.selectById(insertMeetup.getId());
+		Meetup memetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
 		assertNull("Select by Id with a deleted record id shoud be null",memetup);
 		
 	}

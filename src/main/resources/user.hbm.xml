@@ -15,11 +15,11 @@
 		<property name="email" />
 		<one-to-one name="avatar"/>
 		<list name="meetups" cascade="all">
-			<key column="id" />
+			<key column="iduser" />
 			<list-index column="meetup_order" />
 			<one-to-many class="Meetup" />
 		</list>
-		<set name="roles" cascade="all" table="userrole" lazy="false" fetch="select">
+		<set name="roles" cascade="all" table="userrole" inverse="false" lazy="false" fetch="select">
          <key column="iduser"/>
          <many-to-many class="Role" column="idrole"/>
       </set>
