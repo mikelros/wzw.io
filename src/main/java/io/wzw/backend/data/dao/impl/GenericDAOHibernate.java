@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import io.wzw.backend.data.HibernateSession;
+import io.wzw.backend.data.HibernateUtil;
 import io.wzw.backend.data.dao.GenericDAO;
 
 /**
@@ -25,7 +25,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 	 * starts transaction
 	 */
 	protected void startTransaction() {
-		session = HibernateSession.getSession();
+		session = HibernateUtil.getSession();
 		
 		session.getTransaction().begin();
 	}

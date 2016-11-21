@@ -50,7 +50,6 @@ public class HibernateAvatarDAOTest {
 	@Test
 	public void testSelectAll() {
 		int totalElements = avatarDAO.selectAll(Avatar.class).size();
-		//int totalElements = totalElementsAux == null ? 0 : totalElementsAux.size();
 		
 		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
