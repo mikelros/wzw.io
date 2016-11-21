@@ -3,10 +3,6 @@ package io.wzw.backend.data.dao.impl;
 import static org.junit.Assert.*;
 
 import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

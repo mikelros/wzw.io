@@ -39,7 +39,7 @@ public class HibernateAvatarDAOTest {
 		// Select after insert
 		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
-		Avatar avatar = avatarDAO.selectById(insertAvatar.getId());
+		Avatar avatar = avatarDAO.selectById(insertAvatar.getId(), Avatar.class);
 		assertEquals("Select by Id should exist",avatar.getId(), insertAvatar.getId());
 		
 	}
@@ -49,11 +49,11 @@ public class HibernateAvatarDAOTest {
 	 */
 	@Test
 	public void testSelectAll() {
-		int totalElements = avatarDAO.selectAll().size();
+		int totalElements = avatarDAO.selectAll(Avatar.class).size();
 		
 		Avatar insertAvatar = new Avatar(null,"Admin","Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
-		int totalElementsAfterInsert = avatarDAO.selectAll().size();
+		int totalElementsAfterInsert = avatarDAO.selectAll(Avatar.class).size();
 		
 		assertEquals("Select All returns all elements",totalElements + 1, totalElementsAfterInsert);
 	}
@@ -66,7 +66,7 @@ public class HibernateAvatarDAOTest {
 		Avatar insertAvatar = new Avatar(null, "Admin", "Administrator role", new User());
 		avatarDAO.insert(insertAvatar);
 		
-		Avatar avatar = avatarDAO.selectById(insertAvatar.getId());
+		Avatar avatar = avatarDAO.selectById(insertAvatar.getId(), Avatar.class);
 		
 		assertNotNull("Select by Id with a inserted record id shoudn't be null",avatar);
 	}
@@ -87,7 +87,7 @@ public class HibernateAvatarDAOTest {
 		avatarDAO.update(insertAvatar);
 		
 		// Select and check if name has changed
-		Avatar updatedAvatar = avatarDAO.selectById(insertAvatar.getId());
+		Avatar updatedAvatar = avatarDAO.selectById(insertAvatar.getId(), Avatar.class);
 		
 		assertEquals("Role name was changed", updatedName, updatedAvatar.getDescription());
 	}
@@ -103,7 +103,7 @@ public class HibernateAvatarDAOTest {
 		
 		// Delete 
 		avatarDAO.delete(insertAvatar);
-		Avatar avatar = avatarDAO.selectById(insertAvatar.getId());
+		Avatar avatar = avatarDAO.selectById(insertAvatar.getId(), Avatar.class);
 		assertNull("Select by Id with a deleted record id shoud be null",avatar);
 		
 	}
