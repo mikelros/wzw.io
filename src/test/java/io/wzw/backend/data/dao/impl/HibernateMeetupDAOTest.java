@@ -34,7 +34,7 @@ public class HibernateMeetupDAOTest {
 	@Test
 	public void testSelectById() {
 		// Select after insert
-		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		Meetup insertMeetup = new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 				meetupDAO.insert(insertMeetup);
 		Meetup meetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
 		assertEquals("Select by Id should exist",meetup.getId(), insertMeetup.getId());
@@ -47,7 +47,7 @@ public class HibernateMeetupDAOTest {
 	@Test
 	public void testSelectAll() {
 		int totalElements = meetupDAO.selectAll(Meetup.class).size();
-		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		Meetup insertMeetup = new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
 		int totalElementsAfterInsert = meetupDAO.selectAll(Meetup.class).size();
 		
@@ -59,7 +59,7 @@ public class HibernateMeetupDAOTest {
 	 */
 	@Test
 	public void testInsert() {
-		Meetup insertMeetup =  new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		Meetup insertMeetup =  new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
 		
 		Meetup meetup = meetupDAO.selectById(insertMeetup.getId(), Meetup.class);
@@ -75,7 +75,7 @@ public class HibernateMeetupDAOTest {
 		String updatedName = "Admin changed";
 		
 		// Select after first insert
-		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		Meetup insertMeetup = new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
 		
 		// We update the role
@@ -94,7 +94,7 @@ public class HibernateMeetupDAOTest {
 	@Test
 	public void testDelete() {
 		// Select after first insert
-		Meetup insertMeetup = new Meetup(1,"Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		Meetup insertMeetup = new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
 		meetupDAO.insert(insertMeetup);
 		
 		// Delete 

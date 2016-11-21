@@ -17,10 +17,8 @@ public class Meetup implements Serializable {
 	public Meetup() {
 	}
 
-	public Meetup(Integer id, String name, String description, Date since, Date meetup_date, Integer open,
+	public Meetup(String name, String description, Date since, Date meetup_date, Integer open,
 			Float latitude, Float languitude, User user) {
-		super();
-		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.since = since;
