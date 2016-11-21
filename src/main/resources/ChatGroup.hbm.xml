@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="io.wzw.backend.data.model">
+
+	<class name="ChatGroup" table="chat_group">
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="name" />
+		<property name="description" />
+		<set name="messages" lazy="false" fetch="select" cascade="all">
+			<key column="id" />
+			<one-to-many class="Message" />
+		</set>
+		<set name="users" cascade="all" table="user_chatgroup" inverse="true" lazy="false" fetch="select">
+         	<key column="idchatgroup"/>
+         <many-to-many class="User" column="iduser"/>
+      </set>
+	</class>
+
+</hibernate-mapping>

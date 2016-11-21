@@ -14,7 +14,7 @@
 		<property name="password" />
 		<property name="email" />
 		<one-to-one name="avatar"/>
-		<list name="meetups" cascade="all" lazy="false">
+		<list name="meetups" cascade="all">
 			<key column="iduser" />
 			<list-index column="meetup_order" />
 			<one-to-many class="Meetup" />
