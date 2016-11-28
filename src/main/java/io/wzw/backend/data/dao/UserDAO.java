@@ -1,5 +1,7 @@
 package io.wzw.backend.data.dao;
 
+import org.hibernate.HibernateException;
+
 import io.wzw.backend.data.model.User;
 
 /**
@@ -7,5 +9,5 @@ import io.wzw.backend.data.model.User;
  *
  */
 public interface UserDAO extends GenericDAO<User>{
-	
+	public User existingUser(String username);
 }
