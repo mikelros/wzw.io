@@ -8,6 +8,8 @@ import io.wzw.backend.data.model.User;
  * @author Mikel
  *
  */
-public interface UserDAO extends GenericDAO<User>{
+public interface UserDAO extends GenericDAO<User> {
 	public User existingUser(String username);
+
+	public User existingEmail(String email);
 }
