@@ -17,7 +17,7 @@ public class HibernateUserDAO extends GenericDAOHibernate<User> implements  User
 	public User existingUser(String username) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	    Session session = sessionFactory.openSession();
-	    User user = (User) session.get(User.class, username);
+	    User user = (User) session.createQuery("FROM User u WHERE  s.username = :username").setParameter("username", username).uniqueResult();
 	    session.close();
 	    return user;
 	}	
