@@ -18,7 +18,7 @@ public class HibernateUserDAO extends GenericDAOHibernate<User> implements UserD
 	public User existingUser(String username) {
 		startTransaction();
 		Session session = getSession();
-		User user = (User) session.createQuery("FROM User u WHERE  s.username = :username")
+		User user = (User) session.createQuery("FROM User u WHERE u.username = :username")
 				.setParameter("username", username).uniqueResult();
 		session.close();
 		return user;

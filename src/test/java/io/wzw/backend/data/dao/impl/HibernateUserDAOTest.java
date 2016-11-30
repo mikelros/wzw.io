@@ -81,5 +81,14 @@ public class HibernateUserDAOTest {
 		User user = userDAO.selectById(insertUser.getId(), User.class);
 		assertNull("Select by Id with a deleted record id shoud be null", user);
 	}
+	
+	@Test
+	public void testExistingEmail() {
+		String email = "testing@email.com";
+		User insertUser = new User(null, "username", "password", email, new Avatar(), null, null);
+		userDAO.insert(insertUser);
+		User user = userDAO.existingEmail(email);
+		assertNotNull(user);
+	}
 
 }
