@@ -2,14 +2,19 @@ package io.wzw.backend.data.dao.impl;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import io.wzw.backend.data.dao.MeetupDAO;
 import io.wzw.backend.data.dao.impl.HibernateMeetupDAO;
+import io.wzw.backend.data.model.Avatar;
 import io.wzw.backend.data.model.Meetup;
+import io.wzw.backend.data.model.Role;
 import io.wzw.backend.data.model.User;
 
 public class HibernateMeetupDAOTest {
@@ -104,4 +109,20 @@ public class HibernateMeetupDAOTest {
 		
 	}
 
+	@Test
+	public void testLastEvents() {
+		User user = new User(1, "mikel", "1234", "mikel@mikel.com", new Avatar(), new HashSet<Role>(),new ArrayList<Meetup>());
+		ArrayList<Meetup> meets = new ArrayList<Meetup>();
+		
+		for (int i = 0; i<20; i++){
+			meets.add(new Meetup("Admin"+i,"Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, user));
+		}
+		user.setMeetups(meets);
+		HibernateUserDAO userDAO = new HibernateUserDAO();
+		userDAO.insert(user);
+		
+		ArrayList<Meetup> result = (ArrayList<Meetup>) meetupDAO.lastEvents(1l, 12l);
+		assertTrue(true);
+		//assertTrue(result.size() == 10);
+	}
 }
