@@ -112,7 +112,13 @@ public class HibernateMeetupDAOTest {
 	
 	@Test
 	public void testGetUserMeetupById() {
-		
+		Meetup insertMeetup = new Meetup("Admin","Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1, 19.015f, 20.013f, new User());
+		User user = new User(null, "mikel", "1234", "mikel@mikel.com", new Avatar(), new HashSet<Role>(), new ArrayList<Meetup>());
+		insertMeetup.setUser(user);
+		user.getMeetups().add(insertMeetup);
+		meetupDAO.insert(insertMeetup);
+		Meetup meetup = meetupDAO.getUserMeetupById(user.getId().longValue(), insertMeetup.getId().longValue());
+		assertTrue(meetup.getId() == insertMeetup.getId() && meetup.getUser().getId() == user.getId());
 	}
 	
 	@Test
