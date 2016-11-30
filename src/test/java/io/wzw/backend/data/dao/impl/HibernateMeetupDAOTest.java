@@ -109,9 +109,15 @@ public class HibernateMeetupDAOTest {
 		
 	}
 
+	
+	@Test
+	public void testGetUserMeetupById() {
+		
+	}
+	
 	@Test
 	public void testLastEvents() {
-		User user = new User(1, "mikel", "1234", "mikel@mikel.com", new Avatar(), new HashSet<Role>(),new ArrayList<Meetup>());
+		User user = new User(null, "mikel", "1234", "mikel@mikel.com", new Avatar(), new HashSet<Role>(), new ArrayList<Meetup>());
 		ArrayList<Meetup> meets = new ArrayList<Meetup>();
 		
 		for (int i = 0; i<20; i++){
@@ -120,9 +126,8 @@ public class HibernateMeetupDAOTest {
 		user.setMeetups(meets);
 		HibernateUserDAO userDAO = new HibernateUserDAO();
 		userDAO.insert(user);
+		ArrayList<Meetup> result = (ArrayList<Meetup>) meetupDAO.lastEvents(user.getId().longValue(), meets.get(meets.size() - 1).getId().longValue());
 		
-		ArrayList<Meetup> result = (ArrayList<Meetup>) meetupDAO.lastEvents(1l, 12l);
-		assertTrue(true);
-		//assertTrue(result.size() == 10);
+		assertTrue(result.size() == 10);
 	}
 }
