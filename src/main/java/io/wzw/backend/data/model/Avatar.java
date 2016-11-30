@@ -3,7 +3,7 @@ package io.wzw.backend.data.model;
 import java.io.Serializable;
 
 public class Avatar implements Serializable{
-	private Integer id;
+	private Long id;
 	private String description;
 	private String image;
 	private User user;
@@ -16,17 +16,17 @@ public class Avatar implements Serializable{
 	 * @param description
 	 * @param image
 	 */
-	public Avatar(Integer id, String description, String image, User user) {
+	public Avatar(Long id, String description, String image, User user) {
 		this.id = id;
 		this.description = description;
 		this.image = image;
 		this.user = user;
 	}
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getDescription() {

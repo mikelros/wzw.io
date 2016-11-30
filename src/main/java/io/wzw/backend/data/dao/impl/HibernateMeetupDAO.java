@@ -19,8 +19,8 @@ public class HibernateMeetupDAO extends GenericDAOHibernate<Meetup> implements M
 
 		try {
 			result = session.createQuery("SELECT m FROM " + Meetup.class.getSimpleName() + " m INNER JOIN m.User as u WHERE u.id = :idUser AND m.id = :idMeet")
-					.setParameter("idUser", idUser.intValue())
-					.setParameter("idMeet", idMeetup.intValue())
+					.setParameter("idUser", idUser)
+					.setParameter("idMeet", idMeetup)
 					.uniqueResult();
 		} catch (HibernateException ex) {
 			ex.printStackTrace();
@@ -39,7 +39,7 @@ public class HibernateMeetupDAO extends GenericDAOHibernate<Meetup> implements M
 			result = getSession().createQuery(
 					"SELECT m FROM " + Meetup.class.getSimpleName() +
 					" m INNER JOIN m.User as u WHERE u.id = :idUser " + 
-					"AND m.id < :idMeet").setParameter("idUser", idUser.intValue()).setParameter("idMeet", idMeetup.intValue()).setMaxResults(10).list();
+					"AND m.id < :idMeet").setParameter("idUser", idUser).setParameter("idMeet", idMeetup).setMaxResults(10).list();
 			
 		} catch (HibernateException he) {
 			handleException(he);

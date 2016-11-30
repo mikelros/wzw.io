@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Role implements Serializable{
-	private Integer id;
+	private Long id;
 	private String name;
 	private String description;
 	private Set<User> users;
@@ -14,7 +14,7 @@ public class Role implements Serializable{
 		users = new HashSet<User>();
 	}
 
-	public Role(Integer id, String name, String description, Set<User> users) {
+	public Role(Long id, String name, String description, Set<User> users) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,11 +22,11 @@ public class Role implements Serializable{
 		this.users = users;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

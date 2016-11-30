@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Meetup implements Serializable {
-	private Integer id;
+	private Long id;
 	private String name;
 	private String description;
 	private Date since;
 	private Date meetup_date;
-	private Integer open;
+	private Long open;
 	private Float latitude;
 	private Float longitude;
 	private User user;
@@ -17,7 +17,7 @@ public class Meetup implements Serializable {
 	public Meetup() {
 	}
 
-	public Meetup(String name, String description, Date since, Date meetup_date, Integer open,
+	public Meetup(String name, String description, Date since, Date meetup_date, Long open,
 			Float latitude, Float languitude, User user) {
 		this.name = name;
 		this.description = description;
@@ -29,11 +29,11 @@ public class Meetup implements Serializable {
 		this.user = user;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -69,11 +69,11 @@ public class Meetup implements Serializable {
 		this.meetup_date = meetup_date;
 	}
 
-	public Integer getOpen() {
+	public Long getOpen() {
 		return open;
 	}
 
-	public void setOpen(Integer open) {
+	public void setOpen(Long open) {
 		this.open = open;
 	}
 

@@ -11,7 +11,7 @@ import java.util.Set;
  *
  */
 public class User implements Serializable{
-	private Integer id;
+	private Long id;
 	private String username;
 	private String password;
 	private String email;
@@ -23,7 +23,7 @@ public class User implements Serializable{
 		roles = new HashSet<Role>();
 	}
 
-	public User(Integer id, String username, String password, String email, Avatar avatar, Set<Role> roles,
+	public User(Long id, String username, String password, String email, Avatar avatar, Set<Role> roles,
 			List<Meetup> meetups) {
 		super();
 		this.id = id;
@@ -35,11 +35,11 @@ public class User implements Serializable{
 		this.meetups = meetups;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
