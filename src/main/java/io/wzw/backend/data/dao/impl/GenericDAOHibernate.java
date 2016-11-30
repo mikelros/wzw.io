@@ -148,6 +148,4 @@ public class GenericDAOHibernate<T> implements GenericDAO<T>,Serializable {
 		}
 		
 	}
-	
-
 }
