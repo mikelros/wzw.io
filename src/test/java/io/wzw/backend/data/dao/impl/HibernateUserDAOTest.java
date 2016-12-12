@@ -91,4 +91,11 @@ public class HibernateUserDAOTest {
 		assertNotNull(user);
 	}
 
+	@Test
+	public void testCheckLogin(){
+		User insertUser = new User(null, "username", "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8", "", new Avatar(), null, null);
+		userDAO.insert(insertUser);
+		User user = userDAO.checkLogin("username", "password");
+		assertNotNull(user);
+	}
 }

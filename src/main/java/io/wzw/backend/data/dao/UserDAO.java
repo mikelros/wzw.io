@@ -12,4 +12,6 @@ public interface UserDAO extends GenericDAO<User> {
 	public User existingUser(String username);
 
 	public User existingEmail(String email);
+
+	public User checkLogin(String username, String password);
 }
