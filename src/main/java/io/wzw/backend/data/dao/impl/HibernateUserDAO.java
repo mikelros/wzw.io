@@ -39,4 +39,18 @@ public class HibernateUserDAO extends GenericDAOHibernate<User> implements UserD
 
 		return result == null ? null : (User) result;
 	}
+	
+	public User checkLogin(String username, String password){
+		User user = null;
+		startTransaction();
+		try {
+			user = (User) getSession().createSQLQuery("SELECT * FROM User u WHERE u.username ").addEntity(User.class);;
+		} catch (HibernateException ex) {
+			ex.printStackTrace();
+		} finally {
+			getSession().close();
+		}
+		
+		return user;
+	}
 }
