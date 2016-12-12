@@ -50,4 +50,22 @@ public class HibernateMeetupDAO extends GenericDAOHibernate<Meetup> implements M
 
 	}
 	
+	public List<Meetup> lastEvents(Long idUser) {
+		List<Meetup> result = null;
+		
+		try {
+			startTransaction();
+			result = getSession().createQuery(
+					"SELECT m FROM " + Meetup.class.getSimpleName() +
+					" m INNER JOIN m.User as u WHERE u.id = :idUser ").setParameter("idUser", idUser).setMaxResults(10).list();
+			
+		} catch (HibernateException he) {
+			handleException(he);
+		} finally {
+			endTransaction();
+		}
+		return result;
+
+	}
+	
 }
