@@ -136,4 +136,20 @@ public class HibernateMeetupDAOTest {
 		
 		assertTrue(result.size() == 10);
 	}
+	
+	@Test
+	public void testLastEvents1() {
+		User user = new User(null, "mikel", "1234", "mikel@mikel.com", new Avatar(), new HashSet<Role>(), new ArrayList<Meetup>());
+		ArrayList<Meetup> meets = new ArrayList<Meetup>();
+		
+		for (int i = 0; i<20; i++){
+			meets.add(new Meetup("Admin"+i,"Administrator role", new Date(1992, 04, 19), new Date(1992, 04, 12), 1L, 19.015f, 20.013f, user));
+		}
+		user.setMeetups(meets);
+		HibernateUserDAO userDAO = new HibernateUserDAO();
+		userDAO.insert(user);
+		ArrayList<Meetup> result = (ArrayList<Meetup>) meetupDAO.lastEvents(user.getId());
+		
+		assertTrue(result.size() == 10);
+	}
 }
