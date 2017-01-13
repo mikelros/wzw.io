@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import io.wzw.backend.data.dao.MeetupDAO;
@@ -39,7 +40,7 @@ public class HibernateMeetupDAO extends GenericDAOHibernate<Meetup> implements M
 			result = getSession().createQuery(
 					"SELECT m FROM " + Meetup.class.getSimpleName() +
 					" m INNER JOIN m.User as u WHERE u.id = :idUser " + 
-					"AND m.id < :idMeet").setParameter("idUser", idUser).setParameter("idMeet", idMeetup).setMaxResults(10).list();
+					"AND m.id < :idMeet ORDER BY m.id DESC").setParameter("idUser", idUser).setParameter("idMeet", idMeetup).setMaxResults(10).list();
 			
 		} catch (HibernateException he) {
 			handleException(he);
@@ -57,7 +58,7 @@ public class HibernateMeetupDAO extends GenericDAOHibernate<Meetup> implements M
 			startTransaction();
 			result = getSession().createQuery(
 					"SELECT m FROM " + Meetup.class.getSimpleName() +
-					" m INNER JOIN m.User as u WHERE u.id = :idUser ").setParameter("idUser", idUser).setMaxResults(10).list();
+					" m INNER JOIN m.User as u WHERE u.id = :idUser ORDER BY m.id DESC").setParameter("idUser", idUser).setMaxResults(10).list();
 			
 		} catch (HibernateException he) {
 			handleException(he);
